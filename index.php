@@ -1,128 +1,64 @@
 <?php get_header(); ?>
-<body>
+<body <?php body_class(  ); ?>>
 <div class="header">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h3 class="tagline">No act of kindness, no matter how small, is ever wasted</h3>
-                <h1 class="align-self-center display-1 text-center heading">Hello Beautiful</h1>
+                <h3 class="tagline"><?php bloginfo( "description" ); ?></h3>
+                <h1 class="align-self-center display-1 text-center heading"><a href="<?php echo site_url(  ) ?>"><?php bloginfo( "name" ); ?></a></h1>
             </div>
         </div>
     </div>
 </div>
 <div class="posts">
-    <div class="post">
+    <?php 
+        if(have_posts(  )){
+            while(have_posts(  )){
+                the_post(  );?>
+                    <div class="post" <?php post_class(  ); ?>>
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h2 class="post-title">This is a beautiful day in Dhaka!</h2>
+                    <h2 class="post-title"><?php the_title(  ); ?></h2>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-4">
                     <p>
-                        <strong>John Doe</strong><br/>
-                        15th May, 2018
+                        <strong><?php the_author(  ); ?></strong><br/>
+                        <?php echo get_the_date( "jS M, Y" ); ?>
                     </p>
-                    <ul class="list-unstyled">
-                        <li>dhaka</li>
-                    </ul>
+                    <?php 
+                        $tag_list = get_the_tag_list( '<ul class="list-unstyled tag-list"><li>', '</li><li>', '</li></ul>' );
+                        if ( $tag_list && ! is_wp_error( $tag_list ) ) {
+                            echo $tag_list;
+                        }
+                    ?>
                 </div>
                 <div class="col-md-8">
-                    <p>
-                        <img class="img-fluid" src="https://images.pexels.com/photos/301929/pexels-photo-301929.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=800"
-                             alt="Post Title">
-                    </p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut deserunt dicta doloribus error,
-                        harum,
-                        illo impedit incidunt ipsam ipsum necessitatibus nihil perferendis perspiciatis provident quasi
-                        reiciendis saepe
-                        sequi sint, voluptatum?
-                    </p>
-
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusantium adipisci aspernatur
-                        beatae
-                        consequatur dicta distinctio ea eaque enim eos est et eveniet exercitationem expedita hic, id,
-                        minima
-                        molestias necessitatibus optio perferendis quaerat quidem reiciendis rem reprehenderit
-                        repudiandae
-                        saepe
-                        sunt totam ullam unde velit. A ab animi aperiam at beatae cum cupiditate dignissimos distinctio
-                        ducimus
-                        eaque est exercitationem illo labore laudantium magni maxime molestias odio quibusdam quidem,
-                        sequi
-                        soluta sunt ullam voluptate voluptates voluptatum? Dolores earum enim esse est, illo nemo sit
-                        velit.
-                        Aperiam, aspernatur cum explicabo illum iusto labore nam nobis quibusdam ratione sed suscipit
-                        unde
-                        voluptate voluptatibus. Alias distinctio est et laborum quis tempore! Autem consequuntur
-                        cupiditate
-
-                    </p>
+                    <?php 
+                        if(has_post_thumbnail(  )){
+                            the_post_thumbnail( "learg", array("class" => "img-fluid") );
+                        }else{
+                            ?>
+                                <p>
+                                    <img class="img-fluid" src="<?php echo get_template_directory_uri(  ) ?>/assets/images/default/no_image.png"
+                                    alt="Post Title">
+                                </p>
+                            <?php
+                        }
+                    ?>
+                    <?php the_excerpt(  ); ?>
                 </div>
             </div>
 
         </div>
     </div>
+                <?php
+            }
+        }
+    ?>
 
-    <div class="post">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <h2 class="post-title">This is a beautiful day in Dhaka!</h2>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-4">
-                    <p>
-                        <strong>John Doe</strong><br/>
-                        15th May, 2018
-                    </p>
-                    <div class="tags">
-                        <ul class="list-unstyled">
-                            <li>weather</li>
-                            <li>blog</li>
-                            <li>dhaka</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md-8">
-                    <p>
-                        <img class="img-fluid" src="https://images.pexels.com/photos/707344/pexels-photo-707344.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                             alt="Post Title">
-                    </p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut deserunt dicta doloribus error,
-                        harum,
-                        illo impedit incidunt ipsam ipsum necessitatibus nihil perferendis perspiciatis provident quasi
-                        reiciendis saepe
-                        sequi sint, voluptatum?
-                    </p>
 
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusantium adipisci aspernatur
-                        beatae
-                        consequatur dicta distinctio ea eaque enim eos est et eveniet exercitationem expedita hic, id,
-                        minima
-                        molestias necessitatibus optio perferendis quaerat quidem reiciendis rem reprehenderit
-                        repudiandae
-                        saepe
-                        sunt totam ullam unde velit. A ab animi aperiam at beatae cum cupiditate dignissimos distinctio
-                        ducimus
-                        eaque est exercitationem illo labore laudantium magni maxime molestias odio quibusdam quidem,
-                        sequi
-                        soluta sunt ullam voluptate voluptates voluptatum? Dolores earum enim esse est, illo nemo sit
-                        velit.
-                        Aperiam, aspernatur cum explicabo illum iusto labore nam nobis quibusdam ratione sed suscipit
-                        unde
-                        voluptate voluptatibus. Alias distinctio est et laborum quis tempore! Autem consequuntur
-                        cupiditate
-
-                    </p>
-                </div>
-            </div>
-
-        </div>
-    </div>
 </div>
 <?php get_footer( ); ?>
