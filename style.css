@@ -72,3 +72,27 @@ h2.post-title {
 .tag-list{
     text-transform: capitalize;
 }
+
+/* Post Pagination css */
+
+.post-pagination{
+    margin-bottom: 50px;
+}
+
+.post-pagination .pagination {
+    text-align: center;
+    display: block;
+}
+
+.post-pagination a.page-numbers {
+    font-size: 18px;
+    background-color: #222;
+    color: #fff;
+    padding: 10px 15px;
+}
+.post-pagination .nav-links .current {
+    font-size: 18px;
+    background-color: #999;
+    color: #fff;
+    padding: 10px 15px;
+}
