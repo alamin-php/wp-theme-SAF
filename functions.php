@@ -1,4 +1,9 @@
 <?php
+if(site_url( ) == "http://themedev.com"){
+    define("VERSION", time());
+}else{
+    define("VERSION", wp_get_theme() -> get("Version"));
+}
 function saf_bootstraping(){
     load_theme_textdomain("saf");
     add_theme_support( "title-tag" );
@@ -7,7 +12,7 @@ function saf_bootstraping(){
 add_action( "after_setup_theme", "saf_bootstraping");
 
 function saf_assets() {
-    wp_enqueue_style( "bootstrap", "//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css");
+    wp_enqueue_style( "bootstrap", get_theme_file_uri( "/assets/css/bootstrap.min.css" ), null, VERSION);
     wp_enqueue_style( "saf-style", get_stylesheet_uri() );
     // wp_enqueue_script( "script-name", get_template_directory_uri() . "/js/example.js", array(), "1.0.0", true );
 }
