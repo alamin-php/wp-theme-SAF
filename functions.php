@@ -9,6 +9,11 @@ function saf_bootstraping(){
     add_theme_support( "title-tag" );
     add_theme_support( "post-thumbnails" );
     register_nav_menu( "topmenu", __("Primary navigation menu", "saf") );
+    $saf_custom_logo_size = array(
+        'height' => 100,
+        'width'  => 100,
+    );
+    add_theme_support( 'custom-logo', $saf_custom_logo_size );
 }
 add_action( "after_setup_theme", "saf_bootstraping");
 

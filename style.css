@@ -152,3 +152,10 @@ ul#menu-social-link li:first-child {
 .navigation{
     margin-bottom: 100px;
 }
+.custom-logo{
+    margin-top: 30px;
+}
+.custom-logo img{
+    border-radius: 50px;
+    padding: 5px;
+}
