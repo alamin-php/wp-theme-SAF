@@ -8,6 +8,7 @@ function saf_bootstraping(){
     load_theme_textdomain("saf");
     add_theme_support( "title-tag" );
     add_theme_support( "post-thumbnails" );
+    register_nav_menu( "topmenu", __("Primary navigation menu", "saf") );
 }
 add_action( "after_setup_theme", "saf_bootstraping");
 
@@ -54,3 +55,9 @@ function saf_sidebar(){
     );
 }
 add_action( "widgets_init", "saf_sidebar" );
+
+function saf_menu_class_css($classes, $item){
+    $classes[] = "list-inline-item";
+    return $classes;
+}
+add_filter( 'nav_menu_css_class', 'saf_menu_class_css', 10, 2 );
