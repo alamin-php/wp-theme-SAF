@@ -14,6 +14,7 @@ function saf_bootstraping(){
         'width'  => 100,
     );
     add_theme_support( 'custom-logo', $saf_custom_logo_size );
+    add_theme_support( "custom-header" );
 }
 add_action( "after_setup_theme", "saf_bootstraping");
 
@@ -66,3 +67,36 @@ function saf_menu_class_css($classes, $item){
     return $classes;
 }
 add_filter( 'nav_menu_css_class', 'saf_menu_class_css', 10, 2 );
+
+function saf_about_page_template(){
+    if(is_page( )){
+        $saf_feat_image = get_the_post_thumbnail_url( null, "large" );
+        ?>
+            <style>
+                .page-header{
+                    background: url(<?php echo $saf_feat_image; ?>);
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    background-size: cover;
+                }
+            </style>
+        <?php
+    }
+
+    if(is_front_page()){
+        if(current_theme_supports( "custom-header")){
+            ?>
+                <style>
+                    .header{
+                        background: url(<?php header_image(  ); ?>);
+                        background-repeat: no-repeat;
+                        background-position: center;
+                        background-size: cover;
+                    }
+                </style>
+            <?php
+        }
+    }
+
+}
+add_action( "wp_head", "saf_about_page_template", 11);
