@@ -14,7 +14,15 @@ function saf_bootstraping(){
         'width'  => 100,
     );
     add_theme_support( 'custom-logo', $saf_custom_logo_size );
-    add_theme_support( "custom-header" );
+    $saf_custom_header_details = array(
+        "header-text" => true,
+        "default-custom-color" => "#222",
+        "width" => 1200,
+        "height" => 600,
+        "flex-width" => true,
+        "flex-height" => true
+    );
+    add_theme_support( "custom-header", $saf_custom_header_details );
 }
 add_action( "after_setup_theme", "saf_bootstraping");
 
@@ -92,6 +100,12 @@ function saf_about_page_template(){
                         background-repeat: no-repeat;
                         background-position: center;
                         background-size: cover;
+                    }
+                    .header h1.heading a, .header h3.tagline{
+                        color: #<?php echo get_header_textcolor(  ); ?>
+                    }
+                    .custom-logo img{
+                        border: 1px solid #<?php echo get_header_textcolor(  ); ?>
                     }
                 </style>
             <?php
