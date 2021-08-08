@@ -11,7 +11,10 @@
                 <h1 class="align-self-center display-1 text-center heading"><a href="<?php echo site_url(  ) ?>"><?php bloginfo( "name" ); ?></a></h1>
             </div>
         </div>
-        <div class="row">
+    </div>
+</div>
+<div class="container mt-5">
+<div class="row">
             <div class="col-md-12">
                 <div class="navigation">
                     <?php 
@@ -24,5 +27,4 @@
                 </div>
             </div>
         </div>
-    </div>
 </div>
