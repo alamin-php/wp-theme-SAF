@@ -35,6 +35,17 @@
                                     }
                                 ?>
                                 <?php the_content(  ); ?>
+                                <div class="authorsection my-5">
+                                    <div class="row">
+                                    <div class="col-md-2 authorimg">
+                                        <?php echo get_avatar( get_the_author_meta( "ID")); ?>
+                                    </div>
+                                    <div class="col-md-10">
+                                        <strong><?php echo get_the_author_meta( "display_name" ); ?></strong>
+                                        <p><?php echo get_the_author_meta( "description" ); ?></p>
+                                    </div>
+                                    </div>
+                                </div>
                                 <div class="post-pag-wrap">
                                 <div class="post-pag-container prev">
                                     <?php previous_post_link('<span>Previous</span><h3>%link</h3>', '%title', false);?>

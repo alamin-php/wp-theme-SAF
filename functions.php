@@ -8,6 +8,7 @@ function saf_bootstraping(){
     load_theme_textdomain("saf");
     add_theme_support( "title-tag" );
     add_theme_support( "post-thumbnails" );
+    add_theme_support( "post-formats", array("aside", "gallery", "link", "image", "quote", "status", "video", "audio", "chat") );
     register_nav_menu( "topmenu", __("Primary navigation menu", "saf") );
     $saf_custom_logo_size = array(
         'height' => 100,
@@ -29,6 +30,7 @@ add_action( "after_setup_theme", "saf_bootstraping");
 function saf_assets() {
     wp_enqueue_style( "bootstrap", get_theme_file_uri( "/assets/css/bootstrap.min.css" ), null, VERSION);
     wp_enqueue_style( "saf-style", get_stylesheet_uri() );
+    wp_enqueue_style( "dashicons" );
     // wp_enqueue_script( "script-name", get_template_directory_uri() . "/js/example.js", array(), "1.0.0", true );
 }
 add_action( "wp_enqueue_scripts", "saf_assets" );
@@ -105,6 +107,9 @@ function saf_about_page_template(){
                         color: #<?php echo get_header_textcolor(  ); ?>
                     }
                     .custom-logo img{
+                        border: 1px solid #<?php echo get_header_textcolor(  ); ?>
+                    }                    
+                    .post-author img{
                         border: 1px solid #<?php echo get_header_textcolor(  ); ?>
                     }
                 </style>

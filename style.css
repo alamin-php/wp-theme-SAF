@@ -159,3 +159,28 @@ ul#menu-social-link li:first-child {
     border-radius: 50px;
     padding: 5px;
 }
+.post-author img{
+    width: 64px;
+    height: 64px;
+    padding: 3px;
+    margin-right: 5px;
+    border-radius: 50px;
+}
+
+.authorsection{
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+.authorsection .authorimg img{
+    border-radius: 50px;
+    vertical-align: middle;
+    margin-top: 10px;
+    border: 1px solid #222;
+    padding: 3px;
+}
+
+.post-formats .dashicons {
+    font-size: 80px;
+    color: #ddd;
+}

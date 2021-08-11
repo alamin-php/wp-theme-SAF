@@ -14,9 +14,9 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-4 post-author">
                     <p>
-                        <strong><?php the_author(  ); ?></strong><br/>
+                        <strong><?php echo get_avatar( get_the_author_meta( "ID" ) ) ?><?php the_author(  ); ?></strong><br/>
                         <?php echo get_the_date( "jS M, Y" ); ?>
                     </p>
                     <?php 
@@ -25,6 +25,32 @@
                             echo $tag_list;
                         }
                     ?>
+                    <div class="post-formats">
+                        <?php 
+                        $post_formats =  get_post_format();
+                            if($post_formats == "aside"){
+                                echo '<span class="dashicons dashicons-format-aside"></span>';
+                            }else if($post_formats == "gallery"){
+                                echo '<span class="dashicons dashicons-format-gallery"></span>';
+                            }else if($post_formats == "link"){
+                                echo '<span class="dashicons dashicons-admin-links"></span>';
+                            }else if($post_formats == "image"){
+                                echo '<span class="dashicons dashicons-format-image"></span>';
+                            }else if($post_formats == "quote"){
+                                echo '<span class="dashicons dashicons-format-quote"></span>';
+                            }else if($post_formats == "status"){
+                                echo '<span class="dashicons dashicons-format-status"></span>';
+                            }else if($post_formats == "video"){
+                                echo '<span class="dashicons dashicons-format-video"></span>';
+                            }else if($post_formats == "audio"){
+                                echo '<span class="dashicons dashicons-format-audio"></span>';
+                            }else if($post_formats == "chat"){
+                                echo '<span class="dashicons dashicons-format-chat"></span>';
+                            }else{
+                                echo "";
+                            }
+                        ?>
+                    </div>
                 </div>
                 <div class="col-md-8">
                     <?php 
