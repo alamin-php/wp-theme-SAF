@@ -29,6 +29,22 @@
                         </div>
                         <div class="row">
                             <div class="col-md-12">
+                            <div class="slider">
+                                        <?php 
+                                        if(class_exists('Attachments')){
+                                            $attachments = new Attachments('slider');
+                                            if($attachments->exist()){
+                                                while($attachment = $attachments->get()){?>
+                                                <div>
+                                                    <?php echo $attachments->image('large'); ?>
+                                                </div>
+                                                <?php
+
+                                                }
+                                            }
+                                        }
+                                        ?>
+                                    </div>
                                 <?php 
                                     if(has_post_thumbnail(  )){
                                         the_post_thumbnail( "learg", array("class" => "img-fluid") );
