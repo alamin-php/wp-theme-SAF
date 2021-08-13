@@ -119,3 +119,10 @@ function saf_about_page_template(){
 
 }
 add_action( "wp_head", "saf_about_page_template", 11);
+
+function saf_body_classes( $classes ) {
+    $classes[] = 'custom-class';
+      
+    return $classes;
+}
+add_filter( 'body_class', 'saf_body_classes' );
