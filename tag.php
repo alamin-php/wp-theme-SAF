@@ -32,6 +32,9 @@
                             echo $tag_list;
                         }
                     ?>
+                    <div class="post-category">
+                        <?php the_category() ?>
+                    </div>
                     <div class="post-formats">
                         <?php 
                         $post_formats =  get_post_format();
