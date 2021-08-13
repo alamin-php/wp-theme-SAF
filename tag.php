@@ -2,6 +2,13 @@
 <body <?php body_class(); ?>>
 <?php get_template_part( "template-parts/hero" ) ?>
 <div class="posts">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+            <h2>This Post Under: <?php single_tag_title(); ?> Tag</h2>
+            </div>
+        </div>
+    </div>
     <?php 
         if(have_posts(  )){
             while(have_posts(  )){
@@ -25,9 +32,6 @@
                             echo $tag_list;
                         }
                     ?>
-                    <div class="post-category">
-                        <?php the_category() ?>
-                    </div>
                     <div class="post-formats">
                         <?php 
                         $post_formats =  get_post_format();
