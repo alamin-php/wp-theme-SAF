@@ -1,9 +1,16 @@
+<?php 
+    $saf_layout_class = "col-md-8";
+    if( !is_active_sidebar( "sidebar-1" )){
+        $saf_layout_class ="col-md-12";
+        $saf_text_center = "text-center";
+    }
+?>
 <?php get_header(); ?>
 <body <?php body_class(  ); ?>>
 <?php get_template_part( "template-parts/hero" ) ?>
 <div class="container">
     <div class="row">
-        <div class="col-md-8">
+        <div class="<?php echo $saf_layout_class; ?>">
         <div class="posts">
     <?php 
         if(have_posts(  )){
@@ -12,7 +19,7 @@
                 <div class="post" <?php post_class(  ); ?>>
                     <div class="container">
                         <div class="row">
-                            <div class="col-md-12">
+                            <div class="col-md-12 <?php echo $saf_text_center ?>">
                                 <h2 class="post-title"><?php the_title(  ); ?></h2>
                                 <p>
                                 <strong><?php the_author(  ); ?></strong><br/>
@@ -65,6 +72,7 @@
     ?>
 </div>
         </div>
+        <?php if(is_active_sidebar( "sidebar-1" )): ?>
         <div class="col-md-4">
             <?php 
                 if(is_active_sidebar( "sidebar-1" )){
@@ -72,6 +80,7 @@
                 }
             ?>
         </div>
+        <?php endif; ?>
     </div>
 </div>
 
