@@ -37,6 +37,7 @@
                                                 while($attachment = $attachments->get()){?>
                                                 <div>
                                                     <?php echo $attachments->image('large'); ?>
+                                                    <?php echo $attachments->field('title'); ?>
                                                 </div>
                                                 <?php
 
